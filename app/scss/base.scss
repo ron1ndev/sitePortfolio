@@ -10,7 +10,7 @@ $fontFamily: "Montserrat";
 //<ПЕРЕМЕННЫЕ>===========================================================================================================
 $minWidth: 320px;
 $maxWidth: 1920;
-$maxWidthContainer: 1170;
+$maxWidthContainer: 1504;
 $md1: $maxWidthContainer + 12;
 $md2: 991.98;
 $md3: 767.98;
@@ -18,9 +18,10 @@ $md4: 479.98;
 //</ПЕРЕМЕННЫЕ>===========================================================================================================
 
 body {
-    color: #000;
+    color: #fff;
     font-size: 14px;
     overflow-anchor: none;
+    background-color: #03050a;
   }
   
   body._lock {
