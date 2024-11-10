@@ -145,15 +145,24 @@ h6 {
   font-size: inherit;
 }
 
+html,
+body {
+  scroll-behavior: smooth;
+}
+
 .header {
   margin-bottom: 100px;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+  backdrop-filter: blur(10px); /* Устанавливаем размытие */
 }
 
 .header__content {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 70px 0px;
+  padding: 10px 0px;
 }
 
 .header__logo {
@@ -314,7 +323,8 @@ h6 {
 }
 
 .hero {
-  min-height: 1200px;
+  margin-top: 170px;
+  min-height: 100vh;
 }
 
 .hero__content {
@@ -329,6 +339,10 @@ h6 {
   max-width: 650px;
   line-height: 78px;
   font-family: "Montserrat";
+}
+
+.hero__title-dev {
+  min-height: 100px;
 }
 
 .hero__title-overlay1 {
@@ -418,6 +432,7 @@ h6 {
   text-align: center;
   position: fixed;
   right: 100px;
+  z-index: 1;
 }
 
 .hero__social::after {
@@ -476,6 +491,7 @@ h6 {
   right: -50px;
   filter: blur(10px);
   animation: opacity 6s infinite linear;
+  z-index: -1;
 }
 
 @keyframes opacity {
@@ -496,4 +512,96 @@ h6 {
   filter: blur(10px);
   animation: opacity 6s infinite linear;
   animation-delay: 3s;
+  z-index: -1;
+}
+
+.projects {
+  padding-top: 60px;
+  min-height: 1000px;
+  margin-bottom: 100px;
+}
+
+.projects__title {
+  font-size: 96px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.tabs__contorls {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 44px;
+}
+
+.contols-tabs__list {
+  display: flex;
+  gap: 0px 16px;
+  justify-content: center;
+}
+
+.contols-tabs__item {
+  padding: 12px;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 8px;
+  background: transparent;
+  transition: background 0.3s;
+  cursor: pointer;
+}
+
+.contols-tabs__item.active {
+  background: linear-gradient(45deg, rgb(255, 128, 2) 0%, rgb(253, 18, 132) 100%);
+}
+
+.contols-tabs__item:hover {
+  background: linear-gradient(45deg, rgb(255, 128, 2) 0%, rgb(253, 18, 132) 100%);
+  transition: background 0.3s;
+}
+
+.content-tabs__list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 44px 32px;
+}
+
+.content-tabs__item {
+  flex: 0 1 20%;
+}
+
+.content-tabs__img {
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.content-tabs__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.content-tabs__title {
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.swiper {
+  width: 100%;
+}
+
+.swiper-slide {
+  opacity: 0;
+  position: absolute;
+  top: 100%;
+  transition: all 1s;
+}
+
+.swiper-slide.active {
+  position: relative;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  transition: all 1s;
 }

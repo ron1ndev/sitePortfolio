@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -35,10 +36,10 @@
                 </div>
                 <nav class="header__menu">
                     <ul class="header__list">
-                        <li class="header__item"><a class="header__link" href="#">Projects</a></li>
-                        <li class="header__item"><a class="header__link" href="#">Skills</a></li>
-                        <li class="header__item"><a class="header__link" href="#">Experience</a></li>
-                        <li class="header__item"><a class="header__link" href="#">Contact</a></li>
+                        <li class="header__item"><a class="header__link" href="#projects">Projects</a></li>
+                        <li class="header__item"><a class="header__link" href="#skills">Skills</a></li>
+                        <li class="header__item"><a class="header__link" href="#experience">Experience</a></li>
+                        <li class="header__item"><a class="header__link" href="#footer">Contact</a></li>
                     </ul>
                 </nav>
             </div>
@@ -46,11 +47,15 @@
 		<!-- Основной контент -->
 		<main class="main" id="main">           
             <div class="main__content _container">
-                <section class="hero">
+                <section class="hero" id="hero">
                     <div class="hero__content">
                         <div class="hero__title">
-                            Разработка<br/>
-                            <span class="hero__title-gradient">APPS<br/>WEBSITE</span>
+                            <div class="hero__title-dev">
+                                Разработка
+                            </div>
+                            <div class="hero__title-app">
+                                <span class="hero__title-gradient"><span class="k1">APPS</span><br/><span class="k2">WEBSITE</span></span>
+                            </div>                        
                         </div>
                         <div class="hero__title-overlay1">
                             APPS
@@ -108,6 +113,73 @@
                     <div class="hero__img-code1"><img src="./img/src/code2.png" alt=""></div>
                     <div class="hero__img-code2"><img src="./img/src/code2.png" alt=""></div>
                 </section>
+                <section class="projects" id="projects">
+                    <div class="projects__content">
+                        <div class="projects__title">Projects</div>
+                        <div class="projects__tabs tabs">
+                            <div class="tabs__contorls contols-tabs">
+                                <ul class="contols-tabs__list">
+                                    <li class="contols-tabs__item active">Все</li>
+                                    <li class="contols-tabs__item">Интернет-магазин</li>
+                                    <li class="contols-tabs__item">Лендинги</li>
+                                    <li class="contols-tabs__item">Письма</li>
+                                </ul>
+                            </div>
+
+                            <div class="tabs__content content-tabs">
+                                <div class="content-tabs__list">
+                                    <div class="swiper">
+                                        <!-- Additional required wrapper -->
+                                        <div class="swiper-wrapper">
+                                        <!-- Slides -->
+                                        <div class="swiper-slide active" data-info='internet'>
+                                            <li class="content-tabs__item">
+                                                <div class="content-tabs__img"><img src="./img/src/page1.png" alt=""></div>
+                                                <div class="content-tabs__title">Интернет-магазин</div>
+                                            </li>
+                                        </div>
+                                        <div class="swiper-slide active" data-info='lending'> 
+                                            <li class="content-tabs__item">
+                                            <div class="content-tabs__img"><img src="./img/src/page2.png" alt=""></div>
+                                            <div class="content-tabs__title">Интернет-магазин</div>
+                                        </li>
+                                        </div>
+                                        <div class="swiper-slide active" data-info='lending'>
+                                            <li class="content-tabs__item">
+                                                <div class="content-tabs__img"><img src="./img/src/page3.png" alt=""></div>
+                                                <div class="content-tabs__title">Интернет-магазин</div>
+                                            </li>
+                                        </div>
+                                        <div class="swiper-slide active" data-info='lending'>
+                                            <li class="content-tabs__item">
+                                                <div class="content-tabs__img"><img src="./img/src/page4.png" alt=""></div>
+                                                <div class="content-tabs__title">Интернет-магазин</div>
+                                            </li>
+                                        </div>
+                                        <div class="swiper-slide active" data-info='letter'>
+                                            <li class="content-tabs__item">
+                                                <div class="content-tabs__img"><img src="./img/src/page5.png" alt=""></div>
+                                                <div class="content-tabs__title">Интернет-магазин</div>
+                                            </li>
+                                        </div>
+                                        <div class="swiper-slide active" data-info='lending'>
+                                            <li class="content-tabs__item">
+                                                <div class="content-tabs__img"><img src="./img/src/page6.png" alt=""></div>
+                                                <div class="content-tabs__title">Интернет-магазин</div>
+                                            </li>
+                                        </div>
+                                        </div>
+                 
+                                        <div class="swiper-button-prev"></div>
+                                        <div class="swiper-button-next"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+
+                        </div>
+                    </div>
+                </section>
             </div>
 		</main>
 		<!-- Основной контент -->
@@ -130,19 +202,21 @@
                     
                     <div class="footer__city">Г. Екатеринбург</div>
                     <div class="footer__arr-up">
+                        <a href="#">
                         <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <rect x="1" y="47" width="46" height="46" rx="23" transform="rotate(-90 1 47)" stroke="white" stroke-width="2"/>
                                 <path d="M28.75 21C26.25 20 24.25 17.5 23.75 15.5" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
                                 <path d="M18.75 21C21.25 20 23.25 17.5 23.75 15.5" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
                                 <path d="M23.5 16.5L23.5 32.5" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
                             </svg>
-                            
+                        </a>
                     </div>
                 </div>
             </div>
             <div class="footer__img-code2"><img src="./img/src/code2.png" alt=""></div>
 		</footer>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="js/main.min.js"></script>
 </body>
 </html>
