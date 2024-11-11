@@ -10,27 +10,11 @@ const clean = require('gulp-clean');
 	// // Подключаем модуль gulp-clean-css
   // const cleancss = require('gulp-clean-css');
  
-  // Подключаем compress-images для работы с изображениями
-  const imagecomp = require('compress-images');
+ 
 
 
 
-  async function images() {
-    await imagecomp(
-      "app/img/src/**/*", // Берём все изображения из папки источника
-      "app/img/dest/", // Выгружаем оптимизированные изображения в папку назначения
-      { compress_force: false, statistic: true, autoupdate: true }, false, // Настраиваем основные параметры
-      { jpg: { engine: "mozjpeg", command: ["-quality", "75"] } }, // Сжимаем и оптимизируем изображеня
-      { png: { engine: "pngquant", command: ["--quality=75-100", "-o"] } },
-      { svg: { engine: "svgo", command: "--multipass" } },
-      { gif: { engine: "gifsicle", command: ["--colors", "64", "--use-col=web"] } },
-      function (err, completed) { // Обновляем страницу по завершению
-        if (completed === true) {
-          browserSync.reload()
-        }
-      }
-    )
-  }
+
 
 function scripts(){
   return src('app/js/main.js',)
@@ -62,7 +46,6 @@ function watching(){
   watch(['app/scss/**/*.scss'], styles);
   watch(['app/**/*.js','!app/**/*.min.js'],scripts)
   watch(['app/*.html']).on('change', browserSync.reload)
-  watch('app/img/src/**/*', images)
 }
 
 function browsersync(){
@@ -80,27 +63,22 @@ function cleanDist (){
   .pipe(clean());
 }
 
-function cleanimg() {
-	return src('app/img/dest/', {allowEmpty: true}).pipe(clean()) // Удаляем папку "app/images/dest/"
-}
 
 function building(){
   return src([
     'app/css/style.min.css',
     'app/css/style.css',
     'app/js/main.min.js',
-    'app/img/dest/**/*',
     'app/*.html'
   ],{base:'app'})
   .pipe(dest('dist'))
 }
 
-exports.cleanimg = cleanimg;
-exports.images = images;
+
 exports.styles = styles;
 exports.scripts = scripts;
 exports.watching = watching;
 exports.browsersync = browsersync;
 
-exports.build = series(cleanDist,images,building)
-exports.default = parallel(styles,scripts,browsersync,watching,series(cleanimg,images));
+exports.build = series(cleanDist,building)
+exports.default = parallel(styles,scripts,browsersync,watching);
