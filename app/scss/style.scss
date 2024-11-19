@@ -15,14 +15,26 @@ body {
   backdrop-filter: blur(10px); /* Устанавливаем размытие */
   // backdrop-filter: blur(8px) grayscale(50%) brightness(1.2);
   // box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Тень для эффекта глубины */
+  // background: linear-gradient(90deg, rgba(255,128,2,1) 0%, rgb(253, 85, 18) 100%);
+
 }
 .header__content {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 0px;
-  
 
+  @media (max-width: $md1+px) {
+    padding: 10px 10px;
+  }
+
+  @media (max-width: $md3+px) {
+    // background: linear-gradient(90deg, rgba(255,128,2,1) 0%, rgba(253,18,132,1) 100%);
+  }
+
+  @media (max-width: 600px) {
+    gap: 30px;
+  }
 }
 ._container {
 }
@@ -37,11 +49,20 @@ body {
   font-size: 34px;
   font-weight: 700;
   transition: all .3s;
+
+
   
 }
 .logo__title a{
   color:#fff;
   font-size: 24px;
+
+  @media (max-width: $md3+px) {
+    font-size: 16px;
+    vertical-align: middle;
+    display: none;
+
+  }
 }
 
 .logo__title:hover a{
@@ -73,12 +94,27 @@ body {
 .header__list {
   display: flex;
   gap: 0px 32px;
+
+  @media (max-width: $md3+px) {
+    gap: 0px 10px;
+  }
+  @media (max-width: 600px) {
+    gap: 10px 10px;
+    flex-wrap: wrap;
+
+  }
 }
 .header__item {
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 400;
   position: relative;
-  text-transform: uppercase;
+  // text-transform: uppercase;
+
+  @media (max-width: 600px) {
+    font-size: 18px;
+    font-weight: 500;
+
+  }
 }
 
 .header__item::before{
@@ -202,19 +238,29 @@ body {
 // MAIN HERO
 
 .main {
+  
 }
 .main__content {
+  
 }
 ._container {
 }
 .hero {
   margin-top: 170px;
-  min-height: 100vh;
+  margin-bottom: 300px;
+
+  @media (max-width: $md3+px) {
+    margin-top: 100px;
+  
+  }
 }
 .hero__content {
   display: flex;
   justify-content: space-between;
   position: relative;
+  @media (max-width: $md3+px) {
+// justify-content: baseline;
+	}
 }
 .hero__title {
   font-size: 60px;
@@ -222,6 +268,11 @@ body {
   max-width: 650px;
   line-height: 78px;
  font-family: 'Montserrat';
+ @media (max-width: $md3+px) {
+  min-width: 300px;
+  font-size: 50px;
+  line-height: 58px;
+    }
 
 }
 .hero__title-dev{
@@ -242,6 +293,12 @@ color: transparent; /* Делаем текст прозрачным */
 z-index: -1;
 opacity: 0;
 transition: opacity 3s;
+@media (max-width: $md3+px) {
+  font-size: 80px; /* Размер шрифта */
+  left: 0px;
+  bottom: 70px;
+
+}
 }
 
 .hero__title-overlay1.active{
@@ -259,6 +316,12 @@ transition: opacity 3s;
   z-index: -1;
   opacity: 0;
   transition: opacity 3s;
+  @media (max-width: $md3+px) {
+    font-size: 80px; /* Размер шрифта */
+    bottom: -30px;
+    left: 50px;
+  
+  }
   }
   .hero__title-overlay2.active{
     opacity: 1;
@@ -283,9 +346,14 @@ transition: opacity 3s;
   }
 }
 .hero__hello {
-  position: relative;
-  right: 250px;
+  position: absolute;
+  right: 0;
   width: 200px;
+  @media (max-width: $md2 + px) {
+    left: 0;
+    bottom: -300px;
+	}
+
 }
 .hello {
 }
@@ -295,6 +363,7 @@ transition: opacity 3s;
 .hello__text {
   font-size: 32px;
   font-weight: 700;
+  
 }
 @keyframes blink {
   50% { opacity: 0; }
@@ -312,8 +381,23 @@ transition: opacity 3s;
   // gap: 20px 0;
   text-align: center;
   position: fixed;
-  right: 100px;
-z-index: 1;
+  right: 0px;
+  bottom: 180px;
+z-index: 10;
+
+@media (max-width: 1800px) {
+  right: -20px;
+
+}
+@media (max-width: $md1+px) {
+  right: 20px;
+
+}
+@media (max-width: $md3+px) {
+  right: 10px;
+  bottom: 0;
+
+}
 
 }
 
@@ -329,6 +413,10 @@ z-index: 1;
 
    /* Добавляем анимацию */
    animation: gradientShift 3s infinite linear;
+
+   @media (max-width: $md3+px) {
+   display: none;
+  }
   
 }
 @keyframes gradientShift {
@@ -360,9 +448,15 @@ z-index: 1;
   font-size: 15px;
   text-transform: uppercase;
   height: 0;
+  @media (max-width: $md3+px) {
+    display: none;
+   }
 }
 .hero__git {
   margin-bottom: 20px;
+  @media (max-width: $md3+px) {
+    display: none;
+   }
 }
 .logo__icon-svg {
 }
@@ -378,6 +472,13 @@ z-index: 1;
   filter: blur(10px); 
   animation: opacity 6s infinite linear; 
   z-index: -1;
+
+  @media (max-width: $md3+px) {
+    top: 250px;
+  
+  }
+
+
 }
 @keyframes opacity {
   0% {
@@ -399,6 +500,10 @@ z-index: 1;
   animation: opacity 6s infinite linear;
   animation-delay: 3s; 
   z-index: -1;
+  @media (max-width: $md3+px) {
+    display: none;
+  
+  }
 }
 
 
@@ -413,11 +518,11 @@ z-index: 1;
   position: relative;
 }
 .projects__title {
-  font-size: 96px;
-  font-weight: 700;
-  text-align: center;
+  // font-size: 96px;
+  // font-weight: 700;
+  // text-align: center;
   margin-bottom: 80px;
-  text-transform: uppercase;
+  // text-transform: uppercase;
 }
 .projects__tabs {
 }
@@ -434,11 +539,19 @@ z-index: 1;
   display: flex;
   gap: 0px 16px;
   justify-content: center;
+
+  @media (max-width: $md3+px) {
+	  gap: 16px 16px;
+    
+    flex-wrap: wrap;
+	}
+
 }
 .contols-tabs__item {
   padding: 12px;
   border:1px solid rgb(255, 255, 255);
   border-radius: 8px;
+  flex: 0 1 auto;
   
   background: transparent;
   transition: background 0.3s;
@@ -523,12 +636,12 @@ transition: all 1s;
 
 .swiper-scrollbar{
   background: black;
-  
+  height: 1px !important;;
  
 }
 
 .swiper-scrollbar-drag{
-  background: linear-gradient(90deg, rgba(255,128,2,0.3) 0%, rgba(253,18,132,0.3) 100%);
+  background: linear-gradient(90deg, rgba(255,128,2,1) 0%, rgba(253,18,132,1) 100%);
 }
 
 
@@ -549,10 +662,10 @@ transition: all 1s;
 
 .skills {
   padding-top: 120px;
-  min-height: 1000px;
 }
 .skills__content {
   position: relative;
+  margin-bottom: 300px;
 }
 .skills__title {
   margin-bottom: 80px;
@@ -562,11 +675,22 @@ transition: all 1s;
   font-size: 96px;
   font-weight: 700;
   text-transform: uppercase;
+
+  @media (max-width: $md2+px) {
+		font-size: 76px;
+	}
+  @media (max-width: $md3+px) {
+		font-size: 36px;
+	}
 }
 .skills__list {
   display: flex;
   justify-content: center;
-  gap: 0px 24px;
+  gap: 10px 24px;
+  flex-wrap: wrap;
+  @media (max-width: $md3+px) {
+    justify-content: space-evenly;
+	}
 }
 .skills__item {
   text-align: center;
@@ -591,6 +715,20 @@ transition: all 1s;
   right: 50%;
   transform: translate(50%,0);
 
+  @media (max-width: $md1+px) {
+		font-size: 150px;
+    top: -30px;
+	}
+  @media (max-width: $md2+px) {
+		font-size: 120px;
+    top: -25px;
+	}
+  @media (max-width: $md3+px) {
+		font-size: 66px;
+    top: -15px;
+	}
+
+
 }
 
 
@@ -602,7 +740,7 @@ transition: all 1s;
 }
 .experience__content {
   position: relative;
-  min-height: 1000px;
+  min-height: 2000px;
 }
 .experience__chapter {
   display: flex;
@@ -618,7 +756,7 @@ transition: all 1s;
 .experience__item {
   display: flex;
   align-items: flex-start;
-  min-height: 300px;
+  min-height: 400px;
   position: relative;
   // border: 1px solid white;
 }
@@ -637,21 +775,31 @@ transition: all 1s;
   // margin-right: 40px;
   position: absolute;
   right: 100px;
+   min-width: 550px;
 }
 .info-experience-reverse{
+  left: 100px;
+  right: 0;
   // position: absolute;
-  right: -400px;
+  // right: -300px;
   // width: 100%;
 }
 .info-experience__title {
   font-size: 20px;
   font-weight: 700;
   margin-bottom: 20px;
+  margin-left: -22px;
 }
-.info-experience__list {
+.info-experience__list{
+  // list-style-position: inside;
+  // padding: 0;
+}
+.info-experience__list li{
+  list-style: inside;
+  text-indent: -22px;
 }
 .info-experience__item {
-  width: 300px;
+  // width: 300px;
   font-size: 16px;
   line-height: 24px;
 
@@ -660,6 +808,7 @@ transition: all 1s;
   padding: 14px;
   border: 1px solid white;
   border-radius: 50%;
+  // background: linear-gradient(90deg, rgba(255,128,2,0.1) 0%, rgba(253,18,132,0.1) 100%);
   // margin-right: 24px;
   position: relative;
 }
@@ -668,7 +817,7 @@ transition: all 1s;
   content: "";
   display: inline-block;
 width: 2px;
-height: 228px;
+height: 328px;
 background: rgb(255, 255, 255);
 position: absolute;
 left: 50%;
@@ -678,15 +827,17 @@ transform: translate(-50%,100%);
 .item-experience__year {
   font-size: 16px;
   position: absolute;
-  right: -80px;
-  top: 0;
+  right: -120px;
+  top: 7%;
+  width: 100px;
+
 }
 .item-experience__reverse{
   right: 80px;
   width: 100%;
 }
 .experience__text {
-  width: 200px;
+  // max-width: 200px;
 }
 .experience__title {
 }

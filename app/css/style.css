@@ -164,6 +164,16 @@ body {
   align-items: center;
   padding: 10px 0px;
 }
+@media (max-width: 1516px) {
+  .header__content {
+    padding: 10px 10px;
+  }
+}
+@media (max-width: 600px) {
+  .header__content {
+    gap: 30px;
+  }
+}
 
 .header__logo {
   display: flex;
@@ -180,6 +190,13 @@ body {
 .logo__title a {
   color: #fff;
   font-size: 24px;
+}
+@media (max-width: 767.98px) {
+  .logo__title a {
+    font-size: 16px;
+    vertical-align: middle;
+    display: none;
+  }
 }
 
 .logo__title:hover a {
@@ -208,12 +225,28 @@ body {
   display: flex;
   gap: 0px 32px;
 }
+@media (max-width: 767.98px) {
+  .header__list {
+    gap: 0px 10px;
+  }
+}
+@media (max-width: 600px) {
+  .header__list {
+    gap: 10px 10px;
+    flex-wrap: wrap;
+  }
+}
 
 .header__item {
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 400;
   position: relative;
-  text-transform: uppercase;
+}
+@media (max-width: 600px) {
+  .header__item {
+    font-size: 18px;
+    font-weight: 500;
+  }
 }
 
 .header__item::before {
@@ -325,7 +358,12 @@ body {
 
 .hero {
   margin-top: 170px;
-  min-height: 100vh;
+  margin-bottom: 300px;
+}
+@media (max-width: 767.98px) {
+  .hero {
+    margin-top: 100px;
+  }
 }
 
 .hero__content {
@@ -333,13 +371,19 @@ body {
   justify-content: space-between;
   position: relative;
 }
-
 .hero__title {
   font-size: 60px;
   font-weight: 700;
   max-width: 650px;
   line-height: 78px;
   font-family: "Montserrat";
+}
+@media (max-width: 767.98px) {
+  .hero__title {
+    min-width: 300px;
+    font-size: 50px;
+    line-height: 58px;
+  }
 }
 
 .hero__title-dev {
@@ -359,6 +403,13 @@ body {
   opacity: 0;
   transition: opacity 3s;
 }
+@media (max-width: 767.98px) {
+  .hero__title-overlay1 {
+    font-size: 80px; /* Размер шрифта */
+    left: 0px;
+    bottom: 70px;
+  }
+}
 
 .hero__title-overlay1.active {
   opacity: 1;
@@ -376,6 +427,13 @@ body {
   z-index: -1;
   opacity: 0;
   transition: opacity 3s;
+}
+@media (max-width: 767.98px) {
+  .hero__title-overlay2 {
+    font-size: 80px; /* Размер шрифта */
+    bottom: -30px;
+    left: 50px;
+  }
 }
 
 .hero__title-overlay2.active {
@@ -402,9 +460,15 @@ body {
   }
 }
 .hero__hello {
-  position: relative;
-  right: 250px;
+  position: absolute;
+  right: 0;
   width: 200px;
+}
+@media (max-width: 991.98px) {
+  .hero__hello {
+    left: 0;
+    bottom: -300px;
+  }
 }
 
 .hello__img {
@@ -432,8 +496,25 @@ body {
   flex-direction: column;
   text-align: center;
   position: fixed;
-  right: 100px;
-  z-index: 1;
+  right: 0px;
+  bottom: 180px;
+  z-index: 10;
+}
+@media (max-width: 1800px) {
+  .hero__social {
+    right: -20px;
+  }
+}
+@media (max-width: 1516px) {
+  .hero__social {
+    right: 20px;
+  }
+}
+@media (max-width: 767.98px) {
+  .hero__social {
+    right: 10px;
+    bottom: 0;
+  }
 }
 
 .hero__social::after {
@@ -447,6 +528,11 @@ body {
   right: -50%;
   /* Добавляем анимацию */
   animation: gradientShift 3s infinite linear;
+}
+@media (max-width: 767.98px) {
+  .hero__social::after {
+    display: none;
+  }
 }
 
 @keyframes gradientShift {
@@ -477,9 +563,19 @@ body {
   text-transform: uppercase;
   height: 0;
 }
+@media (max-width: 767.98px) {
+  .hero__social::before {
+    display: none;
+  }
+}
 
 .hero__git {
   margin-bottom: 20px;
+}
+@media (max-width: 767.98px) {
+  .hero__git {
+    display: none;
+  }
 }
 
 .hero__tg {
@@ -493,6 +589,11 @@ body {
   filter: blur(10px);
   animation: opacity 6s infinite linear;
   z-index: -1;
+}
+@media (max-width: 767.98px) {
+  .hero__img-code1 {
+    top: 250px;
+  }
 }
 
 @keyframes opacity {
@@ -515,6 +616,11 @@ body {
   animation-delay: 3s;
   z-index: -1;
 }
+@media (max-width: 767.98px) {
+  .hero__img-code2 {
+    display: none;
+  }
+}
 
 .projects {
   padding-top: 120px;
@@ -526,11 +632,7 @@ body {
 }
 
 .projects__title {
-  font-size: 96px;
-  font-weight: 700;
-  text-align: center;
   margin-bottom: 80px;
-  text-transform: uppercase;
 }
 
 .tabs__contorls {
@@ -544,11 +646,18 @@ body {
   gap: 0px 16px;
   justify-content: center;
 }
+@media (max-width: 767.98px) {
+  .contols-tabs__list {
+    gap: 16px 16px;
+    flex-wrap: wrap;
+  }
+}
 
 .contols-tabs__item {
   padding: 12px;
   border: 1px solid rgb(255, 255, 255);
   border-radius: 8px;
+  flex: 0 1 auto;
   background: transparent;
   transition: background 0.3s;
   cursor: pointer;
@@ -617,19 +726,20 @@ body {
 
 .swiper-scrollbar {
   background: black;
+  height: 1px !important;
 }
 
 .swiper-scrollbar-drag {
-  background: linear-gradient(90deg, rgba(255, 128, 2, 0.3) 0%, rgba(253, 18, 132, 0.3) 100%);
+  background: linear-gradient(90deg, rgb(255, 128, 2) 0%, rgb(253, 18, 132) 100%);
 }
 
 .skills {
   padding-top: 120px;
-  min-height: 1000px;
 }
 
 .skills__content {
   position: relative;
+  margin-bottom: 300px;
 }
 
 .skills__title {
@@ -642,11 +752,27 @@ body {
   font-weight: 700;
   text-transform: uppercase;
 }
+@media (max-width: 991.98px) {
+  .title {
+    font-size: 76px;
+  }
+}
+@media (max-width: 767.98px) {
+  .title {
+    font-size: 36px;
+  }
+}
 
 .skills__list {
   display: flex;
   justify-content: center;
-  gap: 0px 24px;
+  gap: 10px 24px;
+  flex-wrap: wrap;
+}
+@media (max-width: 767.98px) {
+  .skills__list {
+    justify-content: space-evenly;
+  }
 }
 
 .skills__item {
@@ -675,6 +801,24 @@ body {
   right: 50%;
   transform: translate(50%, 0);
 }
+@media (max-width: 1516px) {
+  .title-overlay {
+    font-size: 150px;
+    top: -30px;
+  }
+}
+@media (max-width: 991.98px) {
+  .title-overlay {
+    font-size: 120px;
+    top: -25px;
+  }
+}
+@media (max-width: 767.98px) {
+  .title-overlay {
+    font-size: 66px;
+    top: -15px;
+  }
+}
 
 .experience {
   padding-top: 100px;
@@ -682,7 +826,7 @@ body {
 
 .experience__content {
   position: relative;
-  min-height: 1000px;
+  min-height: 2000px;
 }
 
 .experience__chapter {
@@ -699,7 +843,7 @@ body {
 .experience__item {
   display: flex;
   align-items: flex-start;
-  min-height: 300px;
+  min-height: 400px;
   position: relative;
 }
 
@@ -710,20 +854,27 @@ body {
   border-radius: 8px;
   position: absolute;
   right: 100px;
+  min-width: 550px;
 }
 
 .info-experience-reverse {
-  right: -400px;
+  left: 100px;
+  right: 0;
 }
 
 .info-experience__title {
   font-size: 20px;
   font-weight: 700;
   margin-bottom: 20px;
+  margin-left: -22px;
+}
+
+.info-experience__list li {
+  list-style: inside;
+  text-indent: -22px;
 }
 
 .info-experience__item {
-  width: 300px;
   font-size: 16px;
   line-height: 24px;
 }
@@ -739,7 +890,7 @@ body {
   content: "";
   display: inline-block;
   width: 2px;
-  height: 228px;
+  height: 328px;
   background: rgb(255, 255, 255);
   position: absolute;
   left: 50%;
@@ -750,15 +901,12 @@ body {
 .item-experience__year {
   font-size: 16px;
   position: absolute;
-  right: -80px;
-  top: 0;
+  right: -120px;
+  top: 7%;
+  width: 100px;
 }
 
 .item-experience__reverse {
   right: 80px;
   width: 100%;
-}
-
-.experience__text {
-  width: 200px;
 }
