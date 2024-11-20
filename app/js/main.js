@@ -105,6 +105,10 @@ item.addEventListener('click',(e)=>{
         spaceBetween: 40,
       },
       1024: {
+        slidesPerView: 3,
+        spaceBetween: 50,
+      },
+      1517: {
         slidesPerView: 4,
         spaceBetween: 50,
       },
