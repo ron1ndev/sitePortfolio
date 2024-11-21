@@ -86,9 +86,13 @@ body {
 
 /* При наведении меняем заливку на градиент */
 .logo__icon-svg:hover .logo__icon-path {
-  fill: url(#hover-gradient);
-  transition: fill 0.3s ease; /* Плавный переход */
+  @media (min-width:768px){
+    fill: url(#hover-gradient);
+    transition: fill 0.3s ease; /* Плавный переход */
+  }
 }
+
+
 .header__menu {
 }
 .header__list {
@@ -132,26 +136,26 @@ body {
 }
 
 .header__item:hover.header__item::before{
-  content:'';
-  display: inline-block;
-  width: 100%;
-  height: 2px;
-  background: $mainBackgroundGradient;
-  position: absolute;
-  bottom: -8px;
-  left: 0;
-  opacity: 1;
-  transition: all .5s;
-
+  @media (min-width:768px){
+    content:'';
+    display: inline-block;
+    width: 100%;
+    height: 2px;
+    background: $mainBackgroundGradient;
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    opacity: 1;
+    transition: all .3s;
+  }  
 }
 
 .header__item:hover .header__link{
-  
-  background: $mainBackgroundGradient; /* Задаем градиент */
+  @media (min-width:768px){
+    background: $mainBackgroundGradient; /* Задаем градиент */
     -webkit-background-clip: text; /* Используем градиент как заливку для текста */
     -webkit-text-fill-color: transparent; /* Делаем текст прозрачным, чтобы был виден только градиент */
-    
-     
+  }  
 }
 .header__link{
   color:#fff;
@@ -237,9 +241,11 @@ body {
   color:#fff;
 }
 .social__item:hover .social__link{
-  background: $mainBackgroundGradient; /* Задаем градиент */
-  -webkit-background-clip: text; /* Используем градиент как заливку для текста */
-  -webkit-text-fill-color: transparent; /* Делаем текст прозрачным, чтобы был виден только градиент */
+  @media (min-width:768px){
+    background: $mainBackgroundGradient; /* Задаем градиент */
+    -webkit-background-clip: text; /* Используем градиент как заливку для текста */
+    -webkit-text-fill-color: transparent; /* Делаем текст прозрачным, чтобы был виден только градиент */
+  }
 }
 
 .footer__email {
@@ -264,6 +270,12 @@ body {
 
 .footer__city {
   font-size: 24px;
+  @media (max-width: $md3+px) {
+    font-size: 18px;
+  }
+  @media (max-width: 633px) {
+    font-size: 16px;
+  }
 }
 .footer__arr-up {
   position: absolute;
@@ -420,7 +432,7 @@ transition: opacity 3s;
 .hero__social {
   display: flex;
   flex-direction: column;
-  // gap: 20px 0;
+   gap: 10px 0;
   text-align: center;
   position: fixed;
   right: 0px;
@@ -495,7 +507,7 @@ z-index: 10;
    }
 }
 .hero__git {
-  margin-bottom: 20px;
+  // margin-bottom: 20px;
   @media (max-width: $md3+px) {
     display: none;
    }
@@ -550,8 +562,14 @@ z-index: 10;
 
 
 
-// PROJECT
 
+// PROJECT
+// #projects{
+//   scroll-margin-top: 120px;
+//   @media (max-width: $md1+px) {
+//     scroll-margin-top: 0px;
+// 	}
+// }
 .projects {
   padding-top: 120px;
   margin-bottom: 300px;
@@ -578,6 +596,15 @@ z-index: 10;
   // text-align: center;
   margin-bottom: 80px;
   // text-transform: uppercase;
+  @media (max-width: $md1+px) {
+    margin-bottom: 70px;
+	}
+  @media (max-width: $md2+px) {
+    margin-bottom: 60px;
+	}
+  @media (max-width: $md3+px) {
+    margin-bottom: 40px;
+	}
 }
 .projects__tabs {
 }
@@ -603,6 +630,7 @@ z-index: 10;
 
 }
 .contols-tabs__item {
+  display: block;
   padding: 12px;
   border:1px solid rgb(255, 255, 255);
   border-radius: 8px;
@@ -619,8 +647,10 @@ z-index: 10;
 }
 
 .contols-tabs__item:hover{
-  background: $mainBackgroundGradient;
-  transition: background 0.3s;
+  @media (min-width:768px){
+    background: $mainBackgroundGradient;
+    transition: background 0.3s;
+  }
 }
 .tabs__content {
   
@@ -643,6 +673,9 @@ z-index: 10;
   border-radius:8px;
   overflow: hidden;
   margin-bottom: 20px;
+  position: relative;
+  
+  
 }
 .content-tabs__img img{
   width: 100%;
@@ -650,6 +683,65 @@ z-index: 10;
   object-fit: contain;
 
 }
+.content-tabs__img-overlay{
+width: 100%;
+height: 100%;
+background: rgba(0, 0, 0, 0.7);
+position: absolute;
+top: 0;
+left: 0;
+opacity: 0;
+visibility: hidden;
+transition: all 0.3s;
+}
+.content-tabs__img:hover .content-tabs__img-overlay{
+  @media (min-width:768px){
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  }
+
+  .content-tabs__img-icons{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+  }
+.content-tabs__img-icons{
+  
+display: flex;
+align-items: center;
+gap: 15px;
+}
+
+.content-tabs__img:hover .content-tabs__img-icons{
+  @media (min-width:768px){
+    visibility: visible;
+    opacity: 1;
+  }
+  
+
+  }
+  .content-tabs__img-icon{
+    width: 48px;
+    height: 48px;
+  }
+  .content-tabs__img-icon:hover .logo__icon-path{
+    fill: url(#hover-gradient);
+    transition: fill 0.3s ease; /* Плавный переход */
+  }
+ 
+
 .content-tabs__title {
   font-size: 20px;
   font-weight: 700;
@@ -865,7 +957,7 @@ transition: all 1s;
 
 	}
   @media (max-width: 533px) {
-    margin-top: 50px;
+    margin-top: 40px;
 
 	}
 
@@ -932,7 +1024,7 @@ z-index: -1;
 }
 .info-experience {
   flex: 0 0 45%;
-  padding: 45px;
+  padding: 25px 45px 25px 45px;
   background: white;
   color: black;
   border-radius: 8px;
@@ -955,7 +1047,7 @@ z-index: -1;
   //   left: 90px;
 	// }
   @media (max-width: $md1 + px) {
-    padding: 35px 45px 35px 45px;
+    padding: 25px 45px 25px 45px;
   }
   @media (max-width: $md2 + px) {
     flex: 0 0 80%;
@@ -979,6 +1071,12 @@ z-index: -1;
   @media (max-width: $md3 + px) {
     font-size: 16px;
 	}
+}
+.info-experience__subtitle{
+  font-size: 13px;
+  font-weight: 400;
+  margin-bottom: 10px;
+  margin-left: -22px;
 }
 .info-experience__list{
   // list-style-position: inside;

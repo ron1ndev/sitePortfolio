@@ -216,9 +216,11 @@ body {
 }
 
 /* При наведении меняем заливку на градиент */
-.logo__icon-svg:hover .logo__icon-path {
-  fill: url(#hover-gradient);
-  transition: fill 0.3s ease; /* Плавный переход */
+@media (min-width: 768px) {
+  .logo__icon-svg:hover .logo__icon-path {
+    fill: url(#hover-gradient);
+    transition: fill 0.3s ease; /* Плавный переход */
+  }
 }
 
 .header__list {
@@ -262,23 +264,27 @@ body {
   transition: all 0.3s;
 }
 
-.header__item:hover.header__item::before {
-  content: "";
-  display: inline-block;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, rgb(255, 128, 2) 0%, rgb(253, 18, 132) 100%);
-  position: absolute;
-  bottom: -8px;
-  left: 0;
-  opacity: 1;
-  transition: all 0.5s;
+@media (min-width: 768px) {
+  .header__item:hover.header__item::before {
+    content: "";
+    display: inline-block;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, rgb(255, 128, 2) 0%, rgb(253, 18, 132) 100%);
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    opacity: 1;
+    transition: all 0.3s;
+  }
 }
 
-.header__item:hover .header__link {
-  background: linear-gradient(90deg, rgb(255, 128, 2) 0%, rgb(253, 18, 132) 100%); /* Задаем градиент */
-  -webkit-background-clip: text; /* Используем градиент как заливку для текста */
-  -webkit-text-fill-color: transparent; /* Делаем текст прозрачным, чтобы был виден только градиент */
+@media (min-width: 768px) {
+  .header__item:hover .header__link {
+    background: linear-gradient(90deg, rgb(255, 128, 2) 0%, rgb(253, 18, 132) 100%); /* Задаем градиент */
+    -webkit-background-clip: text; /* Используем градиент как заливку для текста */
+    -webkit-text-fill-color: transparent; /* Делаем текст прозрачным, чтобы был виден только градиент */
+  }
 }
 
 .header__link {
@@ -366,10 +372,12 @@ body {
   color: #fff;
 }
 
-.social__item:hover .social__link {
-  background: linear-gradient(90deg, rgb(255, 128, 2) 0%, rgb(253, 18, 132) 100%); /* Задаем градиент */
-  -webkit-background-clip: text; /* Используем градиент как заливку для текста */
-  -webkit-text-fill-color: transparent; /* Делаем текст прозрачным, чтобы был виден только градиент */
+@media (min-width: 768px) {
+  .social__item:hover .social__link {
+    background: linear-gradient(90deg, rgb(255, 128, 2) 0%, rgb(253, 18, 132) 100%); /* Задаем градиент */
+    -webkit-background-clip: text; /* Используем градиент как заливку для текста */
+    -webkit-text-fill-color: transparent; /* Делаем текст прозрачным, чтобы был виден только градиент */
+  }
 }
 
 .footer__email {
@@ -399,6 +407,16 @@ body {
 
 .footer__city {
   font-size: 24px;
+}
+@media (max-width: 767.98px) {
+  .footer__city {
+    font-size: 18px;
+  }
+}
+@media (max-width: 633px) {
+  .footer__city {
+    font-size: 16px;
+  }
 }
 
 .footer__arr-up {
@@ -551,6 +569,7 @@ body {
 .hero__social {
   display: flex;
   flex-direction: column;
+  gap: 10px 0;
   text-align: center;
   position: fixed;
   right: 0px;
@@ -626,9 +645,6 @@ body {
   }
 }
 
-.hero__git {
-  margin-bottom: 20px;
-}
 @media (max-width: 767.98px) {
   .hero__git {
     display: none;
@@ -708,6 +724,21 @@ body {
 .projects__title {
   margin-bottom: 80px;
 }
+@media (max-width: 1516px) {
+  .projects__title {
+    margin-bottom: 70px;
+  }
+}
+@media (max-width: 991.98px) {
+  .projects__title {
+    margin-bottom: 60px;
+  }
+}
+@media (max-width: 767.98px) {
+  .projects__title {
+    margin-bottom: 40px;
+  }
+}
 
 .tabs__contorls {
   font-size: 14px;
@@ -728,6 +759,7 @@ body {
 }
 
 .contols-tabs__item {
+  display: block;
   padding: 12px;
   border: 1px solid rgb(255, 255, 255);
   border-radius: 8px;
@@ -741,9 +773,11 @@ body {
   background: linear-gradient(90deg, rgb(255, 128, 2) 0%, rgb(253, 18, 132) 100%);
 }
 
-.contols-tabs__item:hover {
-  background: linear-gradient(90deg, rgb(255, 128, 2) 0%, rgb(253, 18, 132) 100%);
-  transition: background 0.3s;
+@media (min-width: 768px) {
+  .contols-tabs__item:hover {
+    background: linear-gradient(90deg, rgb(255, 128, 2) 0%, rgb(253, 18, 132) 100%);
+    transition: background 0.3s;
+  }
 }
 
 .content-tabs__list {
@@ -761,12 +795,71 @@ body {
   border-radius: 8px;
   overflow: hidden;
   margin-bottom: 20px;
+  position: relative;
 }
 
 .content-tabs__img img {
   width: 100%;
   height: 100%;
   object-fit: contain;
+}
+
+.content-tabs__img-overlay {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+}
+
+@media (min-width: 768px) {
+  .content-tabs__img:hover .content-tabs__img-overlay {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.content-tabs__img-icons {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+}
+
+.content-tabs__img-icons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+@media (min-width: 768px) {
+  .content-tabs__img:hover .content-tabs__img-icons {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.content-tabs__img-icon {
+  width: 48px;
+  height: 48px;
+}
+
+.content-tabs__img-icon:hover .logo__icon-path {
+  fill: url(#hover-gradient);
+  transition: fill 0.3s ease; /* Плавный переход */
 }
 
 .content-tabs__title {
@@ -973,7 +1066,7 @@ body {
 }
 @media (max-width: 533px) {
   .chapter-experience {
-    margin-top: 50px;
+    margin-top: 40px;
   }
 }
 
@@ -1025,14 +1118,14 @@ body {
 
 .info-experience {
   flex: 0 0 45%;
-  padding: 45px;
+  padding: 25px 45px 25px 45px;
   background: white;
   color: black;
   border-radius: 8px;
 }
 @media (max-width: 1516px) {
   .info-experience {
-    padding: 35px 45px 35px 45px;
+    padding: 25px 45px 25px 45px;
   }
 }
 @media (max-width: 991.98px) {
@@ -1061,6 +1154,13 @@ body {
   .info-experience__title {
     font-size: 16px;
   }
+}
+
+.info-experience__subtitle {
+  font-size: 13px;
+  font-weight: 400;
+  margin-bottom: 10px;
+  margin-left: -22px;
 }
 
 .info-experience__list li {
