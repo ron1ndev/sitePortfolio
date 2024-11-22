@@ -223,6 +223,17 @@ body {
   }
 }
 
+@media (max-width: 768px) {
+  .tg .logo__icon-path {
+    fill: url(#black-gray-gradient);
+  }
+}
+
+.tg:hover .logo__icon-path {
+  fill: url(#black-gray-gradient);
+  transition: fill 0.3s ease; /* Плавный переход */
+}
+
 .header__list {
   display: flex;
   gap: 0px 32px;
@@ -433,11 +444,17 @@ body {
 
 .hero {
   margin-top: 170px;
-  margin-bottom: 300px;
+  min-height: calc(100vh - 170px - 120px);
+}
+@media (max-width: 1516px) {
+  .hero {
+    min-height: calc(100vh - 100px - 100px);
+  }
 }
 @media (max-width: 767.98px) {
   .hero {
     margin-top: 100px;
+    min-height: calc(100vh - 100px - 80px);
   }
 }
 
@@ -537,7 +554,7 @@ body {
 .hero__hello {
   position: absolute;
   right: 0;
-  width: 200px;
+  width: 210px;
 }
 @media (max-width: 991.98px) {
   .hero__hello {
@@ -932,12 +949,20 @@ body {
 }
 
 .skills__title {
+  opacity: 0;
   margin-bottom: 80px;
+  transform: translate(0px, -100px);
+  transition: all 1.2s;
 }
 @media (max-width: 767.98px) {
   .skills__title {
     margin-bottom: 40px;
   }
+}
+
+.skills__title.active {
+  opacity: 1;
+  transform: translate(0, 0px);
 }
 
 .title {
@@ -971,6 +996,14 @@ body {
 
 .skills__item {
   text-align: center;
+  opacity: 0;
+  transition: all 1.2s;
+  transform: translate(0, 50px);
+}
+
+.skills__item.active {
+  transform: translate(0, 0px);
+  opacity: 1;
 }
 
 .skills__img {
@@ -994,6 +1027,7 @@ body {
 }
 
 .title-overlay {
+  opacity: 1;
   text-align: center;
   font-size: 200px;
   font-weight: 700;
@@ -1110,10 +1144,29 @@ body {
   flex-direction: row-reverse;
 }
 
+.item-experience__info {
+  opacity: 0;
+  transform: translate(-100px, 0);
+  transition: all 1.2s;
+}
 @media (max-width: 991.98px) {
   .item-experience__info {
     margin-bottom: 20px;
+    transform: translate(100px, 0);
   }
+}
+
+.item-experience__info.active {
+  transform: translate(0, 0);
+  opacity: 1;
+}
+
+.item-experience__info.info-experience-reverse {
+  transform: translate(100px, 0);
+}
+
+.item-experience__info.info-experience-reverse.active {
+  transform: translate(0, 0);
 }
 
 .info-experience {
@@ -1187,6 +1240,12 @@ body {
   display: flex;
   justify-content: center;
   flex: 0 0 10%;
+  opacity: 0;
+  transition: all 1s;
+}
+
+.test.active {
+  opacity: 1;
 }
 
 .test2 {

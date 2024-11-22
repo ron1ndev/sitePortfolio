@@ -27,10 +27,55 @@ window.addEventListener('load',()=>{
         }
     }
 
-    printText(helloText,'Hello,world',0,100)
+    printText(helloText,'Hello, world',0,100)
     printText(heroTitleDev,'Разработка',0,170)
 
 })
+
+
+
+
+
+
+
+
+
+// Scroll
+
+const skillsItems = document.querySelectorAll('.skills__item');
+const skillsTitle = document.querySelector('.skills__title');
+const experienceItems = document.querySelectorAll('.item-experience__info');
+const test = document.querySelectorAll('.test');
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        if (entry.target.id === 'skills') {
+          skillsItems.forEach((item) => item.classList.add('active'));
+          skillsTitle.classList.add('active');
+        }
+
+        if (entry.target.id === 'experience') {
+          experienceItems.forEach((item) => item.classList.add('active'));
+          test.forEach((item) => item.classList.add('active'));
+        }
+      }
+    });
+  },
+  {
+    threshold: 0.5, // Установим порог на 50% видимости элемента
+  }
+);
+
+const skillSection = document.querySelector('#skills');
+const experienceSection = document.querySelector('#experience');
+
+// Подключаем наблюдение для обеих секций
+observer.observe(skillSection);
+observer.observe(experienceSection);
+
+
 
 
 
@@ -40,51 +85,85 @@ const tabsContols = document.querySelectorAll('.contols-tabs__item');
 const slides = document.querySelectorAll('.swiper-slide');
 
 
-tabsContols.forEach((item,index)=>{
-item.addEventListener('click',(e)=>{
 
-    swiper.slideTo(0);
 
+
+
+function hideSlides(item){
+    
     slides.forEach((item)=>{
         item.classList.remove('active')
     })
+
     tabsContols.forEach((item)=>{
         item.classList.remove('active')
     })
+}
+
+function activeTab(e){
     e.target.classList.add('active')
+}
 
-    if(index===0){
-        slides.forEach((item)=>{
-            item.classList.add('active')
-        })
-    }
+tabsContols.forEach(item=>{
+    item.addEventListener('click',(e)=>{
 
-    if(index===1){
+        swiper.slideTo(0); // Запускает слайд с первого
+
+        hideSlides(item) // Скрываем неактивные слайды и табы
+
+        activeTab(e) // Активный таб
+        
+
+        let target = e.target;
+        let countSlides = 0
         slides.forEach((item)=>{
-            if(item.getAttribute('data-info')==='internet'){
-                item.classList.add('active')
+            
+            if(target.dataset.info === 'all'){
+                slides.forEach(item=>{
+                    item.classList.add('active') 
+                })
+            }else{
+                if(target.dataset.info === item.getAttribute('data-info')){
+                    item.classList.add('active')
+                }
             }
-        })
-    }
-
-    if(index===2){
-        slides.forEach((item)=>{
-            if(item.getAttribute('data-info')==='lending'){
-                item.classList.add('active')
+            
+            if(item.classList.contains('active')){
+                countSlides++
             }
+            
+           
         })
-    }
 
-    if(index===3){
-        slides.forEach((item)=>{
-            if(item.getAttribute('data-info')==='letter'){
-                item.classList.add('active')
-            }
-        })
-    }
+        console.log(countSlides)
+
+        updateSwiperSlides(countSlides);
+
+
+    })
+
 
 })
-})
+
+
+
+// Функция для обновления слайдов в Swiper
+function updateSwiperSlides(countSlides) {
+    // Перебираем все слайды и скрываем неактивные
+    slides.forEach(slide => {
+
+        
+      if (slide.classList.contains('active')) {
+        slide.style.display = 'block'; // Показываем активные слайды
+      } else {
+        slide.style.display = 'none'; // Скрываем неактивные слайды
+      }
+    });
+  
+    // Обновляем Swiper, чтобы он пересчитал слайды
+    swiper.update();
+  }
+  
 
 // Swiper
 
@@ -118,9 +197,28 @@ item.addEventListener('click',(e)=>{
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
     },
+    
 
     scrollbar: {
         el: '.swiper-scrollbar',
       },
+
+      on: {
+        init: function() {
+          // Здесь "this" указывает на объект swiper
+          console.log('Общее количество слайдов: ', this.slides.length);
+        },
+        slideChange: function () {
+          console.log('Текущий активный слайд: ', this.activeIndex);
+          console.log('Общее количество слайдов: ', this.slides.length);
+          
+          // Проверка, достигнут ли последний слайд
+          if (this.isEnd) {
+            console.log('Достигнут последний слайд');
+          } else if (this.isBeginning) {
+            console.log('Вы на первом слайде');
+          }
+        }
+      }
   
   });
