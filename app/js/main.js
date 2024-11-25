@@ -64,7 +64,7 @@ const observer = new IntersectionObserver(
     });
   },
   {
-    threshold: 0.5, // Установим порог на 50% видимости элемента
+    threshold: 0.7, // Установим порог на 50% видимости элемента
   }
 );
 
@@ -72,8 +72,9 @@ const skillSection = document.querySelector('#skills');
 const experienceSection = document.querySelector('#experience');
 
 // Подключаем наблюдение для обеих секций
-observer.observe(skillSection);
 observer.observe(experienceSection);
+observer.observe(skillSection);
+
 
 
 
