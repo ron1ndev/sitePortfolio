@@ -235,9 +235,16 @@ body {
 .social__list {
   display: flex;
   gap: 0px 30px;
+  opacity: 0;
+  transform: translate(0,100px);
+  transition: all 1.2s;
   @media (max-width: $md3+px) {
     gap: 0px 15px;
   }
+}
+.social__list.active{
+  opacity: 1;
+  transform: translate(0,0);
 }
 .social__item {
   font-size: 24px;
@@ -259,10 +266,18 @@ body {
 
 .footer__email {
   font-size: 24px;
+  opacity: 0;
+  transform: translate(0,100px);
+  transition: all 1.2s;
+  transition-delay: 0.3s;
   @media (max-width: $md3+px) {
     margin-bottom: 20px;
     font-size: 18px;
   }
+}
+.footer__email.active{
+  opacity: 1;
+  transform: translate(0,0);
 }
 .footer__right {
   padding: 0px 10px 0px 0px;
@@ -278,6 +293,10 @@ body {
 }
 
 .footer__city {
+  opacity: 1;
+  transform: translate(0,100px);
+  transition: all 1.2s;
+  transition-delay: 0.5s;
   font-size: 24px;
   @media (max-width: $md3+px) {
     font-size: 18px;
@@ -285,6 +304,10 @@ body {
   @media (max-width: 633px) {
     font-size: 16px;
   }
+}
+.footer__city.active{
+  opacity: 1;
+  transform: translate(0,0);
 }
 .footer__arr-up {
   position: absolute;

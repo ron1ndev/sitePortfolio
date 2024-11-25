@@ -11,11 +11,6 @@ const clean = require('gulp-clean');
   // const cleancss = require('gulp-clean-css');
  
  
-
-
-
-
-
 function scripts(){
   return src('app/js/main.js',)
   .pipe(concat('main.min.js'))
@@ -69,7 +64,7 @@ function building(){
     'app/css/style.min.css',
     'app/css/style.css',
     'app/js/main.min.js',
-    'app/*.html'
+    'app/*.html',
   ],{base:'app'})
   .pipe(dest('dist'))
 }

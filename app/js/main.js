@@ -54,6 +54,11 @@ const title = document.querySelectorAll('.title');
 const projects = document.querySelector('#projects');
 const contolsTabsItem = document.querySelectorAll('.contols-tabs__item');
 
+const footer = document.querySelector('#footer');
+const socialList = document.querySelector('.social__list');
+const footerEmail = document.querySelector('.footer__email');
+const footerCity = document.querySelector('.footer__city');
+
 const observer = new IntersectionObserver((entries,observer)=>{
   entries.forEach(({isIntersecting,target})=>{
     if(isIntersecting){
@@ -70,16 +75,6 @@ const observer = new IntersectionObserver((entries,observer)=>{
         }
       })
 
-      experienceItem.forEach(item=>{
-        if(item===target){
-        
-          item.querySelector('.item-experience__year').classList.add('active');
-          item.querySelector('.item-experience__info').classList.add('active');
-          item.querySelector('.test').classList.add('active2')
-                      
-        }
-      })
-
       if(target===projects){
         contolsTabsItem.forEach(item=>{
           item.classList.add('active2')
@@ -88,10 +83,39 @@ const observer = new IntersectionObserver((entries,observer)=>{
         document.querySelector('.swiper-scrollbar').classList.add('active')
       }
 
+
+
     }
   })
 },{
   threshold:1
+})
+
+const observer2 = new IntersectionObserver((entries,observer)=>{
+  entries.forEach(({isIntersecting,target})=>{
+    if(isIntersecting){
+
+      experienceItem.forEach(item=>{
+        if(item===target){
+          item.querySelector('.item-experience__info').classList.add('active');
+          item.querySelector('.item-experience__year').classList.add('active');
+          item.querySelector('.test').classList.add('active2')
+                
+        }
+      })
+
+      if(target===footer){
+        socialList.classList.add('active')
+        footerEmail.classList.add('active')
+        footerCity.classList.add('active')
+        
+      }
+
+
+    }
+  })
+},{
+  threshold:0.6
 })
 
 
@@ -102,10 +126,14 @@ const experienceSection = document.querySelector('#experience');
 
 // Подключаем наблюдение для обеих секций
 startObserve(skillSection)
-startObserve(experienceItem)
 startObserve(title)
 startObserve(projects)
 
+observer2.observe(footer)
+
+experienceItem.forEach(item=>{
+  observer2.observe(item)
+})
 
 
 function isArr(obj){
