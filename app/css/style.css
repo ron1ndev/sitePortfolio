@@ -155,7 +155,8 @@ body {
   position: fixed;
   width: 100%;
   z-index: 10;
-  backdrop-filter: blur(10px); /* Устанавливаем размытие */
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 }
 
 .header__content {
