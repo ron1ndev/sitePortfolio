@@ -47,33 +47,88 @@ const skillsTitle = document.querySelector('.skills__title');
 const experienceItems = document.querySelectorAll('.item-experience__info');
 const test = document.querySelectorAll('.test');
 
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        if (entry.target.id === 'skills') {
-          skillsItems.forEach((item) => item.classList.add('active'));
-          skillsTitle.classList.add('active');
-        }
 
-        if (entry.target.id === 'experience') {
-          experienceItems.forEach((item) => item.classList.add('active'));
-          test.forEach((item) => item.classList.add('active'));
-        }
+const experienceItem = document.querySelectorAll('.experience__item');
+const title = document.querySelectorAll('.title');
+
+const projects = document.querySelector('#projects');
+const contolsTabsItem = document.querySelectorAll('.contols-tabs__item');
+
+const observer = new IntersectionObserver((entries,observer)=>{
+  entries.forEach(({isIntersecting,target})=>{
+    if(isIntersecting){
+      if(target===skillSection){
+        skillsItems.forEach(item=>{
+          item.classList.add('active')
+        })
+        skillsTitle.classList.add('active')
       }
-    });
-  },
-  {
-    threshold: 0.7, // Установим порог на 50% видимости элемента
-  }
-);
+
+      title.forEach(item=>{
+        if(item==target){
+          item.classList.add('active')
+        }
+      })
+
+      experienceItem.forEach(item=>{
+        if(item===target){
+        
+          item.querySelector('.item-experience__year').classList.add('active');
+          item.querySelector('.item-experience__info').classList.add('active');
+          item.querySelector('.test').classList.add('active2')
+                      
+        }
+      })
+
+      if(target===projects){
+        contolsTabsItem.forEach(item=>{
+          item.classList.add('active2')
+        })
+        document.querySelector('.swiper-wrapper').classList.add('active')
+        document.querySelector('.swiper-scrollbar').classList.add('active')
+      }
+
+    }
+  })
+},{
+  threshold:1
+})
+
+
 
 const skillSection = document.querySelector('#skills');
 const experienceSection = document.querySelector('#experience');
 
+
 // Подключаем наблюдение для обеих секций
-observer.observe(experienceSection);
-observer.observe(skillSection);
+startObserve(skillSection)
+startObserve(experienceItem)
+startObserve(title)
+startObserve(projects)
+
+
+
+function isArr(obj){
+
+  if(typeof obj.length === 'number'){
+    return true
+  }else{
+    return false
+  }
+}
+
+function startObserve(section){
+    if(isArr(section)){
+      section.forEach(item=>{
+        observer.observe(item)
+      })
+    }else{
+      observer.observe(section)
+    }
+}
+
+
+
 
 
 
@@ -136,7 +191,7 @@ tabsContols.forEach(item=>{
            
         })
 
-        console.log(countSlides)
+        
 
         updateSwiperSlides(countSlides);
 
@@ -223,3 +278,7 @@ function updateSwiperSlides(countSlides) {
       }
   
   });
+
+  
+
+
