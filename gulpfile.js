@@ -54,10 +54,14 @@ function browsersync(){
 }
 
 function cleanDist (){
-  return src('dist')
+  return src('docs')
   .pipe(clean());
 }
 
+function copyImages() {
+  return src('app/img/**/*', {encoding: false}) // Берем все изображения
+    .pipe(dest('docs/img')); // Копируем в docs/img
+}
 
 function building(){
   return src([
@@ -66,7 +70,7 @@ function building(){
     'app/js/main.min.js',
     'app/*.html',
   ],{base:'app'})
-  .pipe(dest('dist'))
+  .pipe(dest('docs'))
 }
 
 
@@ -75,5 +79,5 @@ exports.scripts = scripts;
 exports.watching = watching;
 exports.browsersync = browsersync;
 
-exports.build = series(cleanDist,building)
+exports.build = series(cleanDist, parallel(building, copyImages));
 exports.default = parallel(styles,scripts,browsersync,watching);
