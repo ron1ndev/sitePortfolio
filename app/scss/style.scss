@@ -96,6 +96,12 @@ body {
     transition: fill 0.3s ease; /* Плавный переход */
   }
 }
+.tg{
+  @media (max-width: $md3+px) {
+    width: 48px;
+    height: 48px;
+  }
+}
 .tg .logo__icon-path{
   @media (max-width:768px){
     fill: url(#black-gray-gradient);
@@ -1176,22 +1182,38 @@ transition: all 1s;
   // padding: 0;
 }
 .info-experience__list li{
-  list-style: inside;
-  text-indent: -22px;
-  @media (max-width: $md3 + px) {
-    text-indent: -18px;
-	}
+  // list-style: inside;
+  // text-indent: -22px;
+  // @media (max-width: $md3 + px) {
+  //   text-indent: -18px;
+	// }
 
 }
 .info-experience__item {
   // width: 300px;
   font-size: 16px;
   line-height: 24px;
+  position: relative;
   @media (max-width: $md3 + px) {
     font-size: 13px;
 	}
 
 }
+
+.info-experience__item::before{
+
+content:'';
+position: absolute;
+top: 9px;
+left: -15px;
+width: 5px; /* Размер маркера */
+height: 5px;
+background-color: #000000; /* Цвет маркера */
+border-radius: 50%; /* Делаем круглый маркер */
+// padding: 0px 10px 0px 0px;
+
+}
+
 .test{
   display: flex;
   justify-content: center;

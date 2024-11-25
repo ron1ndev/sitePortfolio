@@ -224,6 +224,13 @@ body {
   }
 }
 
+@media (max-width: 767.98px) {
+  .tg {
+    width: 48px;
+    height: 48px;
+  }
+}
+
 @media (max-width: 768px) {
   .tg .logo__icon-path {
     fill: url(#black-gray-gradient);
@@ -1244,24 +1251,26 @@ body {
   margin-left: -22px;
 }
 
-.info-experience__list li {
-  list-style: inside;
-  text-indent: -22px;
-}
-@media (max-width: 767.98px) {
-  .info-experience__list li {
-    text-indent: -18px;
-  }
-}
-
 .info-experience__item {
   font-size: 16px;
   line-height: 24px;
+  position: relative;
 }
 @media (max-width: 767.98px) {
   .info-experience__item {
     font-size: 13px;
   }
+}
+
+.info-experience__item::before {
+  content: "";
+  position: absolute;
+  top: 9px;
+  left: -15px;
+  width: 5px; /* Размер маркера */
+  height: 5px;
+  background-color: #000000; /* Цвет маркера */
+  border-radius: 50%; /* Делаем круглый маркер */
 }
 
 .test {
