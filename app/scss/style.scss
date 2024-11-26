@@ -5,9 +5,10 @@
 // Header
 html,
 body {
-  scroll-behavior: smooth;
+  // scroll-behavior: smooth;
 }
 .header {
+  // scroll-margin-top: 100px; /* Добавляет отступ сверху */
   // margin-bottom: 100px;
   position: fixed;
   width: 100%;
@@ -19,7 +20,7 @@ body {
   // box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Тень для эффекта глубины */
   // background: linear-gradient(90deg, rgba(255,128,2,1) 0%, rgb(253, 85, 18) 100%);
 
-  
+ 
 
 }
 .header__content {
@@ -27,6 +28,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 10px 0px;
+  
 
   @media (max-width: $md1+px) {
     padding: 10px 10px;
@@ -342,7 +344,8 @@ body {
 ._container {
 }
 .hero {
-  margin-top: 170px;
+  padding-top: 100px;
+  // margin-top: 170px;
   // margin-bottom: 300px;
   min-height: calc(100vh - 170px - 120px); // Высота устроства - отступ сверху - отступ от последующего блока
 
@@ -351,7 +354,7 @@ body {
   }
 
   @media (max-width: $md3+px) {
-    margin-top: 100px;
+    padding-top: 160px;
     min-height: calc(100vh - 100px - 80px);
   }
 }
@@ -617,6 +620,8 @@ z-index: 10;
 //     scroll-margin-top: 0px;
 // 	}
 // }
+#projects{
+}
 .projects {
   padding-top: 120px;
   margin-bottom: 300px;

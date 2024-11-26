@@ -1,7 +1,7 @@
 // Появление элементов на странице
 window.addEventListener('load',()=>{
-    console.dir(document.documentElement.scrollHeight)
-    // window.location.hash = ''
+   
+    window.location.hash = ''
     // window.scrollTo(0, 0); // Прокрутит окно вниз на 500 пикселей
 
     // функция для показа элемента 
@@ -35,15 +35,22 @@ window.addEventListener('load',()=>{
 
 })
 
-window.addEventListener('scroll',()=>{
-  console.log(window.scrollY)
-  console.log(window.innerHeight)
-  console.log(window)
+
+
+const linkItem = document.querySelectorAll('a[href^="#"]');
+
+linkItem.forEach(item=>{
+  item.addEventListener('click',(e)=>{
+    e.preventDefault();
+    let targetId = item.getAttribute('href').slice(1);
+    let target = document.querySelector(`#${targetId}`)
+
+    target.scrollIntoView({
+      behavior:"smooth",
+      block:'start'
+    })
+  })
 })
-
-
-
-
 
 
 

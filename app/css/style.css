@@ -145,11 +145,6 @@ h6 {
   font-size: inherit;
 }
 
-html,
-body {
-  scroll-behavior: smooth;
-}
-
 .header {
   position: fixed;
   width: 100%;
@@ -476,7 +471,7 @@ body {
 }
 
 .hero {
-  margin-top: 170px;
+  padding-top: 100px;
   min-height: calc(100vh - 170px - 120px);
 }
 @media (max-width: 1516px) {
@@ -486,7 +481,7 @@ body {
 }
 @media (max-width: 767.98px) {
   .hero {
-    margin-top: 100px;
+    padding-top: 160px;
     min-height: calc(100vh - 100px - 80px);
   }
 }
