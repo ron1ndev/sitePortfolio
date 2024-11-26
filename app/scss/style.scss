@@ -346,16 +346,18 @@ body {
 .hero {
   padding-top: 100px;
   // margin-top: 170px;
-  // margin-bottom: 300px;
-  min-height: calc(100vh - 170px - 120px); // Высота устроства - отступ сверху - отступ от последующего блока
+  // margin-bottom: 120px;
+  min-height: calc(100vh - 100px); // Высота устроства - отступ сверху - отступ от последующего блока
 
   @media (max-width: $md1+px) {
-    min-height: calc(100vh - 100px - 100px);
+    min-height: calc(100vh - 100px);
   }
 
   @media (max-width: $md3+px) {
-    padding-top: 160px;
-    min-height: calc(100vh - 100px - 80px);
+   
+    padding-top: 150px;
+    
+    min-height: calc(100vh);
   }
 }
 .hero__content {
@@ -456,6 +458,10 @@ transition: opacity 3s;
   @media (max-width: $md2 + px) {
     left: 0;
     bottom: -300px;
+	}
+  @media (max-width: $md3 + px) {
+    left: 0;
+    bottom: -260px;
 	}
 
 }
@@ -614,16 +620,18 @@ z-index: 10;
 
 
 // PROJECT
-// #projects{
-//   scroll-margin-top: 120px;
-//   @media (max-width: $md1+px) {
-//     scroll-margin-top: 0px;
-// 	}
-// }
 #projects{
+  scroll-margin-top: 120px;
+  @media (max-width: $md1+px) {
+    scroll-margin-top: 0px;
+	}
+  @media (max-width: $md3+px) {
+    scroll-margin-top: 80px;
+	}
 }
+
 .projects {
-  padding-top: 120px;
+  // padding-top: 120px;
   margin-bottom: 300px;
   @media (max-width: $md1+px) {
     margin-bottom: 100px;
@@ -631,11 +639,11 @@ z-index: 10;
 
   @media (max-width: $md3+px) {
     margin-bottom: 60px;
-    padding-top: 80px;
+    // padding-top: 80px;
 	}
   @media (max-width: 533px) {
     margin-bottom: 0px;
-    padding-top: 80px;
+    // padding-top: 80px;
 	}
 
 }

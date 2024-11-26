@@ -472,17 +472,17 @@ h6 {
 
 .hero {
   padding-top: 100px;
-  min-height: calc(100vh - 170px - 120px);
+  min-height: calc(100vh - 100px);
 }
 @media (max-width: 1516px) {
   .hero {
-    min-height: calc(100vh - 100px - 100px);
+    min-height: calc(100vh - 100px);
   }
 }
 @media (max-width: 767.98px) {
   .hero {
-    padding-top: 160px;
-    min-height: calc(100vh - 100px - 80px);
+    padding-top: 150px;
+    min-height: 100vh;
   }
 }
 
@@ -588,6 +588,12 @@ h6 {
   .hero__hello {
     left: 0;
     bottom: -300px;
+  }
+}
+@media (max-width: 767.98px) {
+  .hero__hello {
+    left: 0;
+    bottom: -260px;
   }
 }
 
@@ -740,8 +746,21 @@ h6 {
   }
 }
 
+#projects {
+  scroll-margin-top: 120px;
+}
+@media (max-width: 1516px) {
+  #projects {
+    scroll-margin-top: 0px;
+  }
+}
+@media (max-width: 767.98px) {
+  #projects {
+    scroll-margin-top: 80px;
+  }
+}
+
 .projects {
-  padding-top: 120px;
   margin-bottom: 300px;
 }
 @media (max-width: 1516px) {
@@ -752,13 +771,11 @@ h6 {
 @media (max-width: 767.98px) {
   .projects {
     margin-bottom: 60px;
-    padding-top: 80px;
   }
 }
 @media (max-width: 533px) {
   .projects {
     margin-bottom: 0px;
-    padding-top: 80px;
   }
 }
 
