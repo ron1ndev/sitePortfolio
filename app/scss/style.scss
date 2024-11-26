@@ -119,13 +119,14 @@ body {
 }
 .header__list {
   display: flex;
+// justify-content: flex-end;
   gap: 0px 32px;
 
   @media (max-width: $md3+px) {
     gap: 0px 10px;
   }
   @media (max-width: 600px) {
-    gap: 10px 10px;
+    // gap: 10px 10px;
     flex-wrap: wrap;
 
   }
@@ -139,6 +140,7 @@ body {
   @media (max-width: 600px) {
     font-size: 18px;
     font-weight: 500;
+    padding: 8px 0px; /* Увеличиваем зону нажатия */
 
   }
 }
@@ -182,6 +184,10 @@ body {
 .header__link{
   color:#fff;
   transition: all .3s;
+  @media (max-width: $md3+px) {
+    padding: 10px 0px; /* Увеличиваем зону нажатия */
+  }
+  
 }
 
 .btn{
@@ -347,15 +353,15 @@ body {
   padding-top: 100px;
   // margin-top: 170px;
   // margin-bottom: 120px;
-  min-height: calc(100vh - 100px); // Высота устроства - отступ сверху - отступ от последующего блока
+  min-height: calc(100vh); // Высота устроства - отступ сверху - отступ от последующего блока
 
   @media (max-width: $md1+px) {
-    min-height: calc(100vh - 100px);
+    min-height: calc(100vh);
   }
 
   @media (max-width: $md3+px) {
    
-    padding-top: 150px;
+    padding-top: 160px;
     
     min-height: calc(100vh);
   }
