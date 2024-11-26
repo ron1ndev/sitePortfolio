@@ -1,5 +1,8 @@
 // Появление элементов на странице
 window.addEventListener('load',()=>{
+    console.dir(document.documentElement.scrollHeight)
+    // window.location.hash = ''
+    // window.scrollTo(0, 0); // Прокрутит окно вниз на 500 пикселей
 
     // функция для показа элемента 
     function showElem(selector,speed,clazz='active'){
@@ -32,6 +35,11 @@ window.addEventListener('load',()=>{
 
 })
 
+window.addEventListener('scroll',()=>{
+  console.log(window.scrollY)
+  console.log(window.innerHeight)
+  console.log(window)
+})
 
 
 
