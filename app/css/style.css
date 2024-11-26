@@ -756,12 +756,12 @@ h6 {
 }
 @media (max-width: 1516px) {
   #projects {
-    scroll-margin-top: 0px;
+    scroll-margin-top: 120px;
   }
 }
 @media (max-width: 767.98px) {
   #projects {
-    scroll-margin-top: 80px;
+    scroll-margin-top: 100px;
   }
 }
 
@@ -993,7 +993,7 @@ h6 {
 }
 @media (max-width: 767.98px) {
   .skills {
-    padding-top: 90px;
+    padding-top: 100px;
   }
 }
 
@@ -1144,9 +1144,9 @@ h6 {
   padding-top: 100px;
   padding-bottom: 120px;
 }
-@media (max-width: 533px) {
+@media (max-width: 767.98px) {
   .experience {
-    padding-top: 80px;
+    padding-top: 100px;
   }
 }
 

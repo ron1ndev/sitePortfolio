@@ -629,10 +629,10 @@ z-index: 10;
 #projects{
   scroll-margin-top: 120px;
   @media (max-width: $md1+px) {
-    scroll-margin-top: 0px;
+    scroll-margin-top: 120px;
 	}
   @media (max-width: $md3+px) {
-    scroll-margin-top: 80px;
+    scroll-margin-top: 100px;
 	}
 }
 
@@ -894,7 +894,7 @@ transition: all 1s;
 .skills {
   padding-top: 120px;
   @media (max-width: $md3+px) {
-		padding-top: 90px;
+		padding-top: 100px;
 	}
 }
 .skills__content {
@@ -1024,8 +1024,8 @@ transition: all 1s;
   padding-top: 100px;
   padding-bottom: 120px;
 
-  @media (max-width: 533px) {
-    padding-top:80px;
+  @media (max-width: $md3 + px) {
+    padding-top:100px;
 
 	}
 }
