@@ -343,7 +343,7 @@ function updateSwiperSlides(countSlides) {
     icon.classList.add('active')    
   };
 
-  window.addEventListener('click',(e)=>{
+  window.addEventListener('touchstart',(e)=>{
       let target = e.target;
       if(target.closest('.content-tabs__item')){
 
