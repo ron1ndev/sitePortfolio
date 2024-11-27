@@ -904,6 +904,13 @@ h6 {
   }
 }
 
+@media (max-width: 776px) {
+  .content-tabs__img-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
 .content-tabs__img-icons {
   position: absolute;
   top: 50%;
@@ -924,6 +931,13 @@ h6 {
   .content-tabs__img:hover .content-tabs__img-icons {
     visibility: visible;
     opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .content-tabs__img-icons.active {
+    opacity: 1;
+    visibility: visible;
   }
 }
 

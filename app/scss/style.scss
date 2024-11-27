@@ -780,7 +780,14 @@ transition: all 0.3s;
     visibility: visible;
   }
 
+}
+.content-tabs__img-overlay.active{
+  @media (max-width:776px){
+    opacity: 1;
+    visibility: visible;
   }
+
+}
 
   .content-tabs__img-icons{
     position: absolute;
@@ -805,7 +812,15 @@ gap: 15px;
   }
   
 
+}
+
+.content-tabs__img-icons.active{
+  @media (max-width:768px){
+    opacity: 1;
+    visibility: visible;
   }
+
+}
   .content-tabs__img-icon{
     width: 48px;
     height: 48px;
