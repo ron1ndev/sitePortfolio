@@ -354,7 +354,6 @@ function updateSwiperSlides(countSlides) {
         removeActiveTabsItem();
         addActiveTabsItem(itemOverlay,itemIcon);
         
-
       }else{
         removeActiveTabsItem();
       }
